@@ -31,7 +31,8 @@ public class Treasure {
     public TreasureKind getType(){
         return type;
     }
-    
+  
+    @Override
     public String toString(){
         return name + "\n\tbonus: " + bonus + "\n\ttype: " + type;
     }

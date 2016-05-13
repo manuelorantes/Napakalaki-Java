@@ -59,8 +59,8 @@ public class NumericBadConsequence extends BadConsequence {
     @Override
     public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v,ArrayList<Treasure> h){
 
-        int new_v = 0; 
-        int new_h = 0;
+        int new_v; 
+        int new_h;
 
         if (v.size() < nVisibleTreasures)
           new_v = v.size();
