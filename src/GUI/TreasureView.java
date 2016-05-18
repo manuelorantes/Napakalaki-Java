@@ -39,6 +39,8 @@ public class TreasureView extends javax.swing.JPanel {
         BonusTreasure = new javax.swing.JLabel();
         KindTreasure = new javax.swing.JLabel();
 
+        setBorder(new javax.swing.border.MatteBorder(null));
+
         NameTreasure.setFont(new java.awt.Font("Cantarell", 0, 36)); // NOI18N
         NameTreasure.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         NameTreasure.setText("jLabel1");
@@ -57,7 +59,7 @@ public class TreasureView extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(KindTreasure, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                         .addComponent(BonusTreasure, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );

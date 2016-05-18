@@ -5,25 +5,20 @@
  */
 package GUI;
 
-
-import NapakalakiGame.Napakalaki;
+import NapakalakiGame.Player;
 /**
  *
  * @author manuel
  */
-public class NapakalakiView extends javax.swing.JFrame {
-    private Napakalaki napakalakiModel;
+public class PlayerView extends javax.swing.JPanel {
+    Player playerModel;
     /**
-     * Creates new form NapakalakiView
+     * Creates new form PlayerView
      */
-    public NapakalakiView() {
+    public PlayerView() {
         initComponents();
     }
 
-    
-    public void setNapakalaki(Napakalaki n){
-        this.napakalakiModel = n;
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,20 +28,16 @@ public class NapakalakiView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 777, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 469, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
 
 
