@@ -1,16 +1,17 @@
 
 package NapakalakiGame;
 
-import Test.GameTester;
+import GUI.Dice;
+import GUI.NapakalakiView;
 
 public class EjemploMain {
 
     public static void main(String[] args) {
       Napakalaki game = Napakalaki.getInstance();
-      GameTester test = GameTester.getInstance();
+      NapakalakiView napakalakiView = new NapakalakiView();
       
-      // Poner el numero de jugadores con el que se quiera probar
-      test.play(game, 2); 
-              
+      Dice.createInstance(napakalakiView);
+      napakalakiView.setNapakalaki(game);
+      napakalakiView.setVisible (true);
     }
 }
