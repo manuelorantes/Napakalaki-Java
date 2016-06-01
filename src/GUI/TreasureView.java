@@ -23,7 +23,7 @@ public class TreasureView extends javax.swing.JPanel {
         NameTreasure.setText(t.getName());
         BonusTreasure.setText(Integer.toString(t.getBonus()));
         KindTreasure.setText(t.getType().toString());
-        
+        repaint();
     }
     
     /**

@@ -88,7 +88,7 @@ public class Player {
         return (numero == 6);
     }
     
-    protected int getCombatLevel(){
+    public int getCombatLevel(){
             
         int nivel = 0;
         
