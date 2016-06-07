@@ -42,11 +42,11 @@ public PlayerNamesCapture(JFrame parent, boolean modal) {
         Player1 = new javax.swing.JLabel();
         Player2 = new javax.swing.JLabel();
         Player3 = new javax.swing.JLabel();
-        Text1 = new javax.swing.JTextField();
         Text2 = new javax.swing.JTextField();
         Text3 = new javax.swing.JTextField();
         CancelButton = new javax.swing.JButton();
         PlayButton = new javax.swing.JButton();
+        Text1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -55,8 +55,6 @@ public PlayerNamesCapture(JFrame parent, boolean modal) {
         Player2.setText("Player 2");
 
         Player3.setText("Player 3");
-
-        Text1.setOpaque(false);
 
         CancelButton.setText("Cancel");
         CancelButton.addActionListener(new java.awt.event.ActionListener() {
@@ -72,6 +70,12 @@ public PlayerNamesCapture(JFrame parent, boolean modal) {
             }
         });
 
+        Text1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Text1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -82,11 +86,11 @@ public PlayerNamesCapture(JFrame parent, boolean modal) {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(Player1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Text1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Text1))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(Player2, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Text2))
+                        .addComponent(Text2, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(Player3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -102,11 +106,11 @@ public PlayerNamesCapture(JFrame parent, boolean modal) {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Player1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Text1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Player2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Text2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -134,6 +138,10 @@ public PlayerNamesCapture(JFrame parent, boolean modal) {
         names.add (Text3.getText());
     this.dispose();
     }//GEN-LAST:event_PlayButtonActionPerformed
+
+    private void Text1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Text1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Text1ActionPerformed
 
     /**
      * @param args the command line arguments

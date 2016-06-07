@@ -28,6 +28,7 @@ public class NapakalakiView extends javax.swing.JFrame {
         playerView2.setPlayer(n.getCurrentPlayer());
         playerView2.setNapakalaki(n);
         monsterView1.setVisible(false);
+        combat_button.setEnabled(false);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -116,6 +117,7 @@ public class NapakalakiView extends javax.swing.JFrame {
 
     private void MeetMonsterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MeetMonsterActionPerformed
         MeetMonster.setEnabled(false);
+        combat_button.setEnabled(true);
         next_turn_button.setEnabled(false);
         playerView2.desactivar();
         monsterView1.setMonster(napakalakiModel.getCurrentMonster());
