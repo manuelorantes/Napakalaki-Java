@@ -48,6 +48,10 @@ public class Player {
     }       
     
     //Getters
+    public BadConsequence getPendingBadConsequence(){
+        return pendingBadConsequence;
+    }
+          
     public String getName(){
         return name;
     }  
@@ -84,7 +88,7 @@ public class Player {
     protected boolean shouldConvert(){
         Dice dado = Dice.getInstance();
         int numero;
-        numero = dado.nextNumber();
+        numero = dado.nextNumber("A pesar de haber perdido","Si sacas un 6 te conviertes en sectario");
         return (numero == 6);
     }
     
@@ -245,7 +249,7 @@ public class Player {
         hiddenTreasures = new ArrayList();
         
         hiddenTreasures.add(treasure);
-        int number = dice.nextNumber();
+        int number = dice.nextNumber("si sacas...    1 -> 1 tesoro", "2,3,4,5 -> 2 tesoros     6 -> 3 tesoros");
         
         if(number > 1){    
         Treasure treasure2 = dealer.nextTreasure();

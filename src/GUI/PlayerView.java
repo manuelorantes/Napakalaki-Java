@@ -49,6 +49,8 @@ public class PlayerView extends javax.swing.JPanel {
         nivel.setText(Integer.toString(p.getLevels()));
         nivel_combate.setText(Integer.toString(p.getCombatLevel()));
         num_sectarios.setText(Integer.toString(CultistPlayer.getTotalCultistPlayers()));
+        if (p.getPendingBadConsequence() != null)
+            pendingBadConsequenceView1.setBadConsequence(p.getPendingBadConsequence());
         
         if(p instanceof CultistPlayer)
             ser_sectario.setText("Eres Sectario");
@@ -60,6 +62,18 @@ public class PlayerView extends javax.swing.JPanel {
         repaint();
         revalidate();
         
+    }
+    
+    public void desactivar(){
+        button_discard.setEnabled(false);
+        button_discard_all.setEnabled(false);
+        button_make_visible.setEnabled(false);
+    }
+    
+    public void activar(){
+        button_discard.setEnabled(true);
+        button_discard_all.setEnabled(true);
+        button_make_visible.setEnabled(true);
     }
     
     private void fillTreasurePanel (JPanel aPanel, ArrayList<Treasure> aList) {
@@ -99,9 +113,10 @@ public class PlayerView extends javax.swing.JPanel {
         texto_tesoros_visibles = new javax.swing.JLabel();
         panel_hidden = new javax.swing.JPanel();
         texto_tesoros_ocultos = new javax.swing.JLabel();
-        button_make_visible = new javax.swing.JButton();
-        button_discard = new javax.swing.JButton();
+        pendingBadConsequenceView1 = new GUI.PendingBadConsequenceView();
         button_discard_all = new javax.swing.JButton();
+        button_discard = new javax.swing.JButton();
+        button_make_visible = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(10, 241, 205));
 
@@ -137,10 +152,10 @@ public class PlayerView extends javax.swing.JPanel {
         texto_tesoros_ocultos.setText("Tesoros Ocultos");
         panel_hidden.add(texto_tesoros_ocultos);
 
-        button_make_visible.setText("Make Visible");
-        button_make_visible.addActionListener(new java.awt.event.ActionListener() {
+        button_discard_all.setText("Discard All Treasures");
+        button_discard_all.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_make_visibleActionPerformed(evt);
+                button_discard_allActionPerformed(evt);
             }
         });
 
@@ -151,10 +166,10 @@ public class PlayerView extends javax.swing.JPanel {
             }
         });
 
-        button_discard_all.setText("Discard All Treasures");
-        button_discard_all.addActionListener(new java.awt.event.ActionListener() {
+        button_make_visible.setText("Make Visible");
+        button_make_visible.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_discard_allActionPerformed(evt);
+                button_make_visibleActionPerformed(evt);
             }
         });
 
@@ -165,32 +180,27 @@ public class PlayerView extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(text_nivel_combate, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nivel_combate, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(111, 111, 111)
+                        .addComponent(ser_sectario, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(145, 145, 145)
+                        .addComponent(text_num_sectarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(111, 111, 111)
-                                .addComponent(ser_sectario, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(panel_visibles, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addContainerGap()
+                                .addComponent(text_nivel_combate, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(nivel_combate, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(145, 145, 145)
-                                .addComponent(text_num_sectarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(button_make_visible)
-                                    .addComponent(button_discard))
-                                .addGap(137, 137, 137))
-                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(panel_visibles, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(button_discard_all)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(button_discard_all)
+                                    .addComponent(button_discard)
+                                    .addComponent(button_make_visible))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -199,9 +209,10 @@ public class PlayerView extends javax.swing.JPanel {
                         .addComponent(nivel, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(num_sectarios, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(57, 57, 57))
+            .addComponent(pendingBadConsequenceView1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(panel_hidden, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(panel_hidden, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,20 +229,23 @@ public class PlayerView extends javax.swing.JPanel {
                         .addComponent(text_num_sectarios, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
                         .addComponent(ser_sectario))
                     .addComponent(num_sectarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                        .addComponent(button_make_visible)
-                        .addGap(68, 68, 68)
-                        .addComponent(button_discard)
-                        .addGap(61, 61, 61)
-                        .addComponent(button_discard_all)
-                        .addGap(80, 80, 80))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(panel_hidden, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(panel_visibles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                            .addComponent(panel_visibles, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(button_make_visible)
+                        .addGap(46, 46, 46)
+                        .addComponent(button_discard)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                        .addComponent(button_discard_all)
+                        .addGap(78, 78, 78)))
+                .addComponent(pendingBadConsequenceView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -243,14 +257,15 @@ public class PlayerView extends javax.swing.JPanel {
 
     private void button_discardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_discardActionPerformed
         ArrayList<Treasure> selHidden = getSelectedTreasures(panel_hidden);
+        ArrayList<Treasure> selVisible = getSelectedTreasures(panel_visibles);
         napakalakiModel.discardHiddenTreasures(selHidden);
+        napakalakiModel.discardVisibleTreasures(selVisible);
         setPlayer(napakalakiModel.getCurrentPlayer());
     }//GEN-LAST:event_button_discardActionPerformed
 
     private void button_discard_allActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_discard_allActionPerformed
         napakalakiModel.getCurrentPlayer().discardAllTreasures();
         setPlayer(napakalakiModel.getCurrentPlayer());
-        
     }//GEN-LAST:event_button_discard_allActionPerformed
 
 
@@ -264,6 +279,7 @@ public class PlayerView extends javax.swing.JPanel {
     private javax.swing.JLabel num_sectarios;
     private javax.swing.JPanel panel_hidden;
     private javax.swing.JPanel panel_visibles;
+    private GUI.PendingBadConsequenceView pendingBadConsequenceView1;
     private javax.swing.JLabel ser_sectario;
     private javax.swing.JLabel text_nivel_combate;
     private javax.swing.JLabel text_num_sectarios;

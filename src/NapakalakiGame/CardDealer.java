@@ -38,6 +38,7 @@ public class CardDealer {
       unusedTreasures.add(new Treasure("Capucha de Cthulhu", 3,TreasureKind.HELMET));
       unusedTreasures.add(new Treasure("Porra preternatural", 1,TreasureKind.HELMET));
       unusedTreasures.add(new Treasure("Zapato deja-amigos", 1,TreasureKind.SHOES));
+      unusedTreasures.add(new Treasure("Botas de lluvia acida", 1,TreasureKind.SHOES));
       unusedTreasures.add(new Treasure("Botas de investigacion", 3,TreasureKind.SHOES));
       unusedTreasures.add(new Treasure("A prueba de babas", 2,TreasureKind.ARMOR));
       unusedTreasures.add(new Treasure("La rebeca metalica", 2,TreasureKind.ARMOR));
@@ -59,7 +60,6 @@ public class CardDealer {
       unusedTreasures.add(new Treasure("Necronomicon", 5,TreasureKind.BOTHHANDS));
       unusedTreasures.add(new Treasure("Linterna a dos manos", 3,TreasureKind.BOTHHANDS));
       unusedTreasures.add(new Treasure("Escopeta de 3 cañones", 4,TreasureKind.BOTHHANDS));
-      unusedTreasures.add(new Treasure("Botas de lluvia acida", 1,TreasureKind.BOTHHANDS));
       unusedTreasures.add(new Treasure("Ametralladora Thompson", 4,TreasureKind.BOTHHANDS));
     
     }
