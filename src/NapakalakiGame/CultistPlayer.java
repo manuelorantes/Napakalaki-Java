@@ -26,7 +26,7 @@ public class CultistPlayer extends Player{
     
     @Override
     protected int getOponentLevel(Monster m){
-        return m.getCombatlevelAgainCultistPlayer(this);
+        return m.getCombatlevelAgainCultistPlayer();
     }
     
     @Override
@@ -34,7 +34,7 @@ public class CultistPlayer extends Player{
         return false;
     }
         
-    public int getTotalCultistPlayers(){
+    static public int getTotalCultistPlayers(){
         return totalCultistPlayers;
     }
     

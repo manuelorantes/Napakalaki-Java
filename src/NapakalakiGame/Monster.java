@@ -52,7 +52,7 @@ public class Monster {
         return name;
     }
     
-    protected int GetCombatLevel(Player p){
+    public int GetCombatLevel(){
         return combatLevel;
     }
     
@@ -64,7 +64,7 @@ public class Monster {
         return premio.GetTreasures();
     }
     
-    protected int getCombatlevelAgainCultistPlayer(Player p){
+    public int getCombatlevelAgainCultistPlayer(){
         return combatLevel + this.levelChangeAgainCultistPlayer;
     }
     

@@ -13,7 +13,7 @@ import NapakalakiGame.Prize;
  * @author manuel
  */
 public class PrizeView extends javax.swing.JPanel {
-    Prize prizeModel;
+    private Prize prizeModel;
     /**
      * Creates new form PrizeView
      */
@@ -64,7 +64,7 @@ public class PrizeView extends javax.swing.JPanel {
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(niveles, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(114, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

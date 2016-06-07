@@ -13,7 +13,7 @@ import NapakalakiGame.BadConsequence;
  * @author manuel
  */
 public class BadConsequenceView extends javax.swing.JPanel {
-    BadConsequence bcModel;
+    private BadConsequence bcModel;
     /**
      * Creates new form BadConsequenceView
      */
@@ -46,7 +46,7 @@ public class BadConsequenceView extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
+                .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(

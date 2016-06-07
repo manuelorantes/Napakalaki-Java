@@ -78,7 +78,7 @@ public class Player {
     }
     
     protected int getOponentLevel(Monster m){
-        return m.GetCombatLevel(this);
+        return m.GetCombatLevel();
     }
     
     protected boolean shouldConvert(){
