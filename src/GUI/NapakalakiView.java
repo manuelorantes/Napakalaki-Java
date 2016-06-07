@@ -28,7 +28,6 @@ public class NapakalakiView extends javax.swing.JFrame {
         playerView2.setPlayer(n.getCurrentPlayer());
         playerView2.setNapakalaki(n);
         monsterView1.setVisible(false);
-        combat_button.setEnabled(false);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -56,6 +55,7 @@ public class NapakalakiView extends javax.swing.JFrame {
         });
 
         combat_button.setText("Combat");
+        combat_button.setEnabled(false);
         combat_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 combat_buttonActionPerformed(evt);
@@ -63,6 +63,7 @@ public class NapakalakiView extends javax.swing.JFrame {
         });
 
         next_turn_button.setText("Next Turn");
+        next_turn_button.setEnabled(false);
         next_turn_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 next_turn_buttonActionPerformed(evt);
@@ -89,8 +90,7 @@ public class NapakalakiView extends javax.swing.JFrame {
                         .addGap(43, 43, 43))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(127, 127, 127)
-                        .addComponent(result)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(result)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -142,6 +142,7 @@ public class NapakalakiView extends javax.swing.JFrame {
 
         setNapakalaki(napakalakiModel);
         playerView2.activar();
+        combat_button.setEnabled(false);
         next_turn_button.setEnabled(true);
     }//GEN-LAST:event_combat_buttonActionPerformed
 
@@ -150,8 +151,8 @@ public class NapakalakiView extends javax.swing.JFrame {
         if (napakalakiModel.nextTurn()){
             playerView2.activar();
             MeetMonster.setEnabled(true);
-            next_turn_button.setEnabled(true);
-            combat_button.setEnabled(true);
+            next_turn_button.setEnabled(false);
+            combat_button.setEnabled(false);
             playerView2.setPlayer(napakalakiModel.getCurrentPlayer());
             result.setText("");
             

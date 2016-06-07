@@ -86,6 +86,7 @@
     <Component class="javax.swing.JButton" name="combat_button">
       <Properties>
         <Property name="text" type="java.lang.String" value="Combat"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="combat_buttonActionPerformed"/>
@@ -94,6 +95,7 @@
     <Component class="javax.swing.JButton" name="next_turn_button">
       <Properties>
         <Property name="text" type="java.lang.String" value="Next Turn"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="next_turn_buttonActionPerformed"/>
